@@ -1,7 +1,9 @@
-def fib (num)
-    arr = []
-    
-    arr << num
+def fib (x)
+    a, b = 0, 1
+    x.times do
+        a, b = b, a + b
+end
+    a
 end
 
 def fib_rec (num)
