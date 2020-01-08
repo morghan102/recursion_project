@@ -1,7 +1,7 @@
 def fib (x)
     a, b = 0, 1
     x.times do
-        a, b = b, a + b #how does this work? Idgi
+        a, b = b, a + b #how does this line work? Idgi
 end
     a
 end
