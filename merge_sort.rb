@@ -1,4 +1,4 @@
-arr = [1,2,3,4,5,6]
+arr = [1000,3, 99,4,100,5,200,6]
 
 def merge_sort (arr)
   longness = arr.length
@@ -8,8 +8,8 @@ def merge_sort (arr)
    arr
   else
       mid = longness/2
-      left = arr[0..(mid-1)]
-      right = arr[mid..-1]
+      left = merge_sort(arr[0..(mid-1)])
+      right = merge_sort(arr[mid..-1])
       merge(left, right)
   end
 end
@@ -18,15 +18,15 @@ def merge (left, right)
   finished_arr = []
   a = left[0]
   b = right[0]
-  while left.length > 0 && right.length > 0 do
+  while !left.empty? && !right.empty? do
 #base case. send back to divide again in mrgsort(?)
-  if a > b
-      finished_arr.push(left.shift)
-  elsif b > a
-    finished_arr.push(right.shift)
-  #if its greater, pop it out of the old array and push into new one
+    if b > a
+        finished_arr.push(left.shift)
+    elsif a > b
+      finished_arr.push(right.shift)
+    #if its greater, pop it out of the old array and push into new one
+    end
   end
-  end
-  p finished_arr
+  #p finished_arr.concat(left, right) #idk why I would do this
 end
 merge_sort(arr)
