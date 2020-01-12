@@ -1,15 +1,13 @@
-arr = [1000,3, 99,4,100,5,200,6]
+arr = [1000,3, 99,4,100,5]
 
 def merge_sort (arr)
   longness = arr.length
-  left = [] #!!!how to declare right in same line?
-  right = []
   if longness <= 1 
    arr
   else
       mid = longness/2
-      left = merge_sort(arr[0..(mid-1)])
-      right = merge_sort(arr[mid..-1])
+      left = merge_sort(arr.slice(0..(mid-1)))
+      right = merge_sort(arr.slice(mid..-1))
       merge(left, right)
   end
 end
@@ -27,6 +25,7 @@ def merge (left, right)
     #if its greater, pop it out of the old array and push into new one
     end
   end
-  #p finished_arr.concat(left, right) #idk why I would do this
+  merge()
+  return finished_arr.concat(left).concat(right) #idk why I would do this
 end
 merge_sort(arr)
